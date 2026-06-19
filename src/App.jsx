@@ -32,6 +32,14 @@ const toastButtons = [
     type: "info",
     duration: 3000,
   },
+  {
+    id: "profile-updated",
+    label: "Profil",
+    message:
+      "Profil mis à jour avec succès. Les changements seront visibles dans quelques minutes.",
+    type: "success",
+    duration: 7000,
+  },
 ];
 
 function App() {
