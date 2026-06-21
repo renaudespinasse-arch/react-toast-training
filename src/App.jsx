@@ -79,21 +79,26 @@ function App() {
   }
 
   return (
-    <div>
-      {toastButtons.map((toastButton) => (
-        <ToastButton
-          key={toastButton.id}
-          label={toastButton.label}
-          message={toastButton.message}
-          type={toastButton.type}
-          duration={toastButton.duration}
-          onShowToast={showToast}
-        />
-      ))}
+    <main className="app">
+      <h1>React Toast</h1>
+
+      <div className="toast-actions">
+        {toastButtons.map((toastButton) => (
+          <ToastButton
+            key={toastButton.id}
+            label={toastButton.label}
+            message={toastButton.message}
+            type={toastButton.type}
+            duration={toastButton.duration}
+            onShowToast={showToast}
+          />
+        ))}
+      </div>
+
       {toast.isVisible && (
         <Toast message={toast.message} type={toast.type} onClose={hideToast} />
       )}
-    </div>
+    </main>
   );
 }
 
