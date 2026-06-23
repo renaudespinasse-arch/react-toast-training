@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Toast from "./components/Toast.jsx";
 import ToastButton from "./components/ToastButton.jsx";
 import "./App.css";
@@ -50,6 +50,12 @@ function App() {
   });
 
   const toastTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(toastTimeoutRef.current);
+    };
+  }, []);
 
   function closeToast() {
     setToast((currentToast) => ({
