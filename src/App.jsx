@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
 import Toast from "./components/Toast.jsx";
 import ToastButton from "./components/ToastButton.jsx";
+import useToast from "./hooks/useToast.js";
 import "./App.css";
 
 const toastButtons = [
@@ -43,46 +43,7 @@ const toastButtons = [
 ];
 
 function App() {
-  const [toast, setToast] = useState({
-    isVisible: false,
-    message: "",
-    type: "success",
-  });
-
-  const toastTimeoutRef = useRef(null);
-
-  useEffect(() => {
-    return () => {
-      clearTimeout(toastTimeoutRef.current);
-    };
-  }, []);
-
-  function closeToast() {
-    setToast((currentToast) => ({
-      ...currentToast,
-      isVisible: false,
-    }));
-  }
-
-  function showToast(message, type, duration) {
-    setToast({
-      isVisible: true,
-      message,
-      type,
-    });
-
-    clearTimeout(toastTimeoutRef.current);
-
-    toastTimeoutRef.current = setTimeout(() => {
-      closeToast();
-    }, duration);
-  }
-
-  function hideToast() {
-    closeToast();
-
-    clearTimeout(toastTimeoutRef.current);
-  }
+  const { toast, showToast, hideToast } = useToast();
 
   return (
     <main className="app">
