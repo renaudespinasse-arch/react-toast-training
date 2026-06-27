@@ -16,7 +16,7 @@ function useToast() {
     }));
   }
 
-  function showToast(message, type, duration) {
+  function showToast(message, type, duration = 3000) {
     setToast({
       isVisible: true,
       message,
