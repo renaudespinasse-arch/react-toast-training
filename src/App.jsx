@@ -40,6 +40,11 @@ const toastButtons = [
     type: "success",
     duration: 7000,
   },
+  {
+    id: "default",
+    label: "Défaut",
+    message: "Toast avec les valeurs par défaut",
+  },
 ];
 
 function App() {
