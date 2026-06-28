@@ -59,9 +59,11 @@ function App() {
           <ToastButton
             key={toastButton.id}
             label={toastButton.label}
-            message={toastButton.message}
-            type={toastButton.type}
-            duration={toastButton.duration}
+            toastConfig={{
+              message: toastButton.message,
+              type: toastButton.type,
+              duration: toastButton.duration,
+            }}
             onShowToast={showToast}
           />
         ))}
