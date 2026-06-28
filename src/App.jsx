@@ -55,14 +55,14 @@ function App() {
       <h1>React Toast</h1>
 
       <div className="toast-actions">
-        {toastButtons.map((toastButton) => (
+        {toastButtons.map(({ id, label, message, type, duration }) => (
           <ToastButton
-            key={toastButton.id}
-            label={toastButton.label}
+            key={id}
+            label={label}
             toastConfig={{
-              message: toastButton.message,
-              type: toastButton.type,
-              duration: toastButton.duration,
+              message,
+              type,
+              duration,
             }}
             onShowToast={showToast}
           />
